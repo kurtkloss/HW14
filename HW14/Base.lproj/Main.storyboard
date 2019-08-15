@@ -52,19 +52,38 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uux-uf-QS3">
+                                <rect key="frame" x="144.5" y="160" width="86" height="74"/>
+                                <color key="backgroundColor" red="1" green="0.48566914419224982" blue="0.18702488122721994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="kTk-lS-aic"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Отправить"/>
+                                <connections>
+                                    <action selector="sendButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sdc-dF-VDL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.78985946455744838" blue="0.14194250654105167" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="fhZ-Ct-7Jo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0Nz-zV-Om5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VVk-f9-Wa8" secondAttribute="trailing" constant="20" id="2g0-I9-rkP"/>
                             <constraint firstItem="fhZ-Ct-7Jo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="8Fm-3G-I6w"/>
+                            <constraint firstItem="uux-uf-QS3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nnh-AJ-Df7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fhZ-Ct-7Jo" secondAttribute="trailing" constant="20" id="cG9-3L-euo"/>
+                            <constraint firstItem="uux-uf-QS3" firstAttribute="top" secondItem="VVk-f9-Wa8" secondAttribute="bottom" constant="40" id="lWS-jq-g0g"/>
                             <constraint firstItem="VVk-f9-Wa8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pwV-63-JnM"/>
                             <constraint firstItem="VVk-f9-Wa8" firstAttribute="top" secondItem="fhZ-Ct-7Jo" secondAttribute="bottom" constant="20" id="tu5-AK-cSH"/>
                             <constraint firstItem="ybp-un-1SH" firstAttribute="width" secondItem="9kw-y5-alX" secondAttribute="width" id="vxe-l0-4cP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="4r6-El-dUW" id="K1X-Tz-nQX"/>
+                        <outlet property="sendButton" destination="uux-uf-QS3" id="myH-gL-oWR"/>
+                        <outlet property="surNameLabel" destination="XuM-H4-Xb3" id="a3h-2j-oI9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
