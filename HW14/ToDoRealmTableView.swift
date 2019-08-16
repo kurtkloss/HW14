@@ -9,7 +9,7 @@
 import UIKit
 
 class ToDoRealmTableView: UITableViewController {
- var ToDoList = ToDoRModel.shared.getToDoR()
+ var toDoList = ToDoRModel.shared.getToDoR()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,19 +28,21 @@ class ToDoRealmTableView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let count = ToDoList?.count ?? 0
+        let count = toDoList?.count ?? 0
         return count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        if let toDo = toDoList?[indexPath.row]{
+            cell.textLabel?.text = toDo.toDo
+        }
+        
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
