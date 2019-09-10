@@ -11,6 +11,7 @@ import RealmSwift
 
 class ToDoR: Object{
     @objc dynamic var toDo = ""
+    @objc dynamic var isCompleted = false
     
 }
 class ToDoRModel{
@@ -22,9 +23,19 @@ class ToDoRModel{
         }
         
     }
+    func changeState(toDoItem: ToDoR){
+        try! realm.write {
+        toDoItem.isCompleted = !toDoItem.isCompleted
+        }
+    }
     func getToDoR() -> [ToDoR]?{
          let allToDoR = realm.objects(ToDoR.self).toArray(ofType: ToDoR.self)
         return allToDoR
+    }
+    func removeToDoR(toDo:ToDoR){
+        try! realm.write {
+            realm.delete(toDo)
+        }
     }
 }
 

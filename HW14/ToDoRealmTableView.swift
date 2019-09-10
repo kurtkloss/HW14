@@ -32,11 +32,24 @@ class ToDoRealmTableView: UITableViewController {
         return count
     }
 
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let toDo = toDoList?[indexPath.row]{
+                ToDoRModel.shared.changeState(toDoItem: toDo)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         if let toDo = toDoList?[indexPath.row]{
             cell.textLabel?.text = toDo.toDo
+            if toDo.isCompleted {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
+            }
+            
         }
         
 
@@ -44,26 +57,24 @@ class ToDoRealmTableView: UITableViewController {
     }
  
 
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+        
         return true
     }
-    */
+  
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            if let toDo = toDoList?[indexPath.row]{
+                ToDoRModel.shared.removeToDoR(toDo: toDo)
+            }
+            toDoList?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
-
+  
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -89,4 +100,17 @@ class ToDoRealmTableView: UITableViewController {
     }
     */
 
+    @IBAction func pushAddAction(_ sender: UIBarButtonItem) {
+        let newToDo = ToDoR()
+        newToDo.toDo = "Something"
+        newToDo.isCompleted = false
+        if toDoList == nil {
+            toDoList = []
+        }
+        toDoList?.append(newToDo)
+        ToDoRModel.shared.saveToDoR(toDoItem: newToDo)
+        tableView.reloadData()
+        
+    }
+    
 }

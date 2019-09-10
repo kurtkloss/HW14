@@ -122,7 +122,13 @@
                             <outlet property="delegate" destination="6X6-Um-O1e" id="MOj-pd-s4h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Что сделать" id="sfS-Jq-InH"/>
+                    <navigationItem key="navigationItem" title="Что сделать" id="sfS-Jq-InH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hDe-Qc-IuP">
+                            <connections>
+                                <action selector="pushAddAction:" destination="6X6-Um-O1e" id="YBb-0e-zmH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJI-Ez-aEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
