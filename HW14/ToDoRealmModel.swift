@@ -23,10 +23,11 @@ class ToDoRModel{
         }
         
     }
-    func changeState(toDoItem: ToDoR){
+    func changeState(toDoItem: ToDoR) -> Bool{
         try! realm.write {
         toDoItem.isCompleted = !toDoItem.isCompleted
         }
+        return toDoItem.isCompleted
     }
     func getToDoR() -> [ToDoR]?{
          let allToDoR = realm.objects(ToDoR.self).toArray(ofType: ToDoR.self)

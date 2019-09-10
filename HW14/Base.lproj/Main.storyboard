@@ -125,10 +125,13 @@
                     <navigationItem key="navigationItem" title="Что сделать" id="sfS-Jq-InH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hDe-Qc-IuP">
                             <connections>
-                                <action selector="pushAddAction:" destination="6X6-Um-O1e" id="YBb-0e-zmH"/>
+                                <action selector="pushAddAction:" destination="6X6-Um-O1e" id="FND-en-SFF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Sct-TE-VuR" kind="presentation" identifier="popUpContoller" id="sFO-pf-gGj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJI-Ez-aEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,7 +140,7 @@
         <!--To Do Popup Realm View Controller-->
         <scene sceneID="L1N-cS-bvl">
             <objects>
-                <viewController id="Sct-TE-VuR" customClass="ToDoPopupRealmViewController" customModule="HW14" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="Sct-TE-VuR" customClass="ToDoPopupRealmViewController" customModule="HW14" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F5z-qA-ef6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,42 +149,56 @@
                                 <rect key="frame" x="37" y="241" width="301" height="185"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нужно сделать:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1R-Ot-5Ry">
-                                        <rect key="frame" x="87" y="10" width="127" height="21"/>
+                                        <rect key="frame" x="87" y="10" width="127" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e2S-CI-PGJ">
-                                        <rect key="frame" x="8" y="53" width="285" height="30"/>
+                                        <rect key="frame" x="8" y="52.5" width="285" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0u-HM-qU1">
-                                        <rect key="frame" x="112" y="140" width="77" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Сохранить"/>
-                                        <connections>
-                                            <action selector="saveButtonAction:" destination="Sct-TE-VuR" eventType="touchUpInside" id="p8F-RD-Soz"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="kZY-dC-srp">
+                                        <rect key="frame" x="40" y="140" width="221" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0u-HM-qU1">
+                                                <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Сохранить"/>
+                                                <connections>
+                                                    <action selector="saveButtonAction:" destination="Sct-TE-VuR" eventType="touchUpInside" id="p8F-RD-Soz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2b-qA-QCX">
+                                                <rect key="frame" x="150" y="0.0" width="71" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Отменить"/>
+                                                <connections>
+                                                    <action selector="cancelButtonAction:" destination="Sct-TE-VuR" eventType="touchUpInside" id="I9N-zQ-2Zg"/>
+                                                    <action selector="saveButtonAction:" destination="Sct-TE-VuR" eventType="touchUpInside" id="MR6-Xw-myc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.48173993997697784" blue="0.22752291277343206" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="e2S-CI-PGJ" secondAttribute="trailing" constant="8" id="6FC-aA-Mrk"/>
-                                    <constraint firstItem="R0u-HM-qU1" firstAttribute="centerX" secondItem="jHB-A2-DJw" secondAttribute="centerX" id="7Dz-oR-Q1K"/>
+                                    <constraint firstAttribute="bottom" secondItem="kZY-dC-srp" secondAttribute="bottom" constant="15" id="9cE-EV-LWd"/>
                                     <constraint firstItem="m1R-Ot-5Ry" firstAttribute="centerX" secondItem="jHB-A2-DJw" secondAttribute="centerX" id="Bvo-jB-wNK"/>
-                                    <constraint firstAttribute="bottom" secondItem="R0u-HM-qU1" secondAttribute="bottom" constant="15" id="KLa-yn-jDd"/>
                                     <constraint firstItem="e2S-CI-PGJ" firstAttribute="centerX" secondItem="jHB-A2-DJw" secondAttribute="centerX" id="Nkg-vB-WsE"/>
                                     <constraint firstItem="m1R-Ot-5Ry" firstAttribute="top" secondItem="jHB-A2-DJw" secondAttribute="top" constant="10" id="VL0-Pz-kFL"/>
                                     <constraint firstItem="e2S-CI-PGJ" firstAttribute="leading" secondItem="jHB-A2-DJw" secondAttribute="leading" constant="8" id="Wrx-rj-edI"/>
                                     <constraint firstAttribute="width" constant="301" id="cEf-nz-DVS"/>
+                                    <constraint firstItem="kZY-dC-srp" firstAttribute="centerX" secondItem="jHB-A2-DJw" secondAttribute="centerX" id="i9d-cN-duU"/>
                                     <constraint firstItem="e2S-CI-PGJ" firstAttribute="top" secondItem="m1R-Ot-5Ry" secondAttribute="bottom" constant="22" id="m6c-6r-YTj"/>
                                     <constraint firstAttribute="height" constant="185" id="wCf-sD-rih"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.75546470207253891" green="0.75546470207253891" blue="0.75546470207253891" alpha="0.32787742077464788" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="jHB-A2-DJw" firstAttribute="centerY" secondItem="F5z-qA-ef6" secondAttribute="centerY" id="CEs-Rp-hJt"/>
                             <constraint firstItem="jHB-A2-DJw" firstAttribute="centerX" secondItem="F5z-qA-ef6" secondAttribute="centerX" id="fxn-en-EJ5"/>
@@ -224,6 +241,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="zN3-o5-Cyq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mxm-hl-Xbu">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

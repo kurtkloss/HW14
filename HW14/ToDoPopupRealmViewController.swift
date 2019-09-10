@@ -7,10 +7,15 @@
 //
 
 import UIKit
+protocol PopUpControllerDelegate{
+    func addToDo(toDo:String)
+}
+
+
 
 class ToDoPopupRealmViewController: UIViewController {
+    var delegate:PopUpControllerDelegate?
     @IBOutlet weak var toDoTextField: UITextField!
-    
     @IBOutlet weak var toDoView: UIView!
     @IBOutlet weak var toDoLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
@@ -22,6 +27,12 @@ class ToDoPopupRealmViewController: UIViewController {
     
 
     @IBAction func saveButtonAction(_ sender: UIButton) {
+        if let toDoText = toDoTextField.text{
+        delegate?.addToDo(toDo: toDoText)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func cancelButtonAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 }

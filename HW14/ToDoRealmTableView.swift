@@ -35,10 +35,14 @@ class ToDoRealmTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let toDo = toDoList?[indexPath.row]{
-                ToDoRModel.shared.changeState(toDoItem: toDo)
+            if  ToDoRModel.shared.changeState(toDoItem: toDo){
+                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            }else {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            }
         }
         tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -99,18 +103,33 @@ class ToDoRealmTableView: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
     @IBAction func pushAddAction(_ sender: UIBarButtonItem) {
-        let newToDo = ToDoR()
-        newToDo.toDo = "Something"
-        newToDo.isCompleted = false
-        if toDoList == nil {
-            toDoList = []
+        self.performSegue(withIdentifier: "popUpContoller", sender: self)
+//
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ToDoPopupRealmViewController, segue.identifier == "popUpContoller"{
+            vc.delegate = self
         }
-        toDoList?.append(newToDo)
-        ToDoRModel.shared.saveToDoR(toDoItem: newToDo)
-        tableView.reloadData()
+    }
+    
+}
+extension ToDoRealmTableView:PopUpControllerDelegate{
+    func addToDo(toDo: String) {
+        let newToDo = ToDoR()
+                newToDo.toDo = toDo
+                newToDo.isCompleted = false
+                if toDoList == nil {
+                    toDoList = []
+                }
+                toDoList?.append(newToDo)
+                ToDoRModel.shared.saveToDoR(toDoItem: newToDo)
+                tableView.reloadData()
         
     }
+    
     
 }
