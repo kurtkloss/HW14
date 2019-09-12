@@ -10,6 +10,8 @@
 		3706E5A623056451004AABFA /* NamePersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3706E5A523056451004AABFA /* NamePersistance.swift */; };
 		3706E5A8230593A7004AABFA /* ToDoPopupRealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3706E5A7230593A7004AABFA /* ToDoPopupRealmViewController.swift */; };
 		377558EE232925CC00DB1BED /* ToDoCoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377558ED232925CC00DB1BED /* ToDoCoreTableView.swift */; };
+		37A0485F232A265C00871B38 /* ToDoCore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A0485D232A265C00871B38 /* ToDoCore+CoreDataClass.swift */; };
+		37A04860232A265C00871B38 /* ToDoCore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A0485E232A265C00871B38 /* ToDoCore+CoreDataProperties.swift */; };
 		37F819CB2306CF83009E2474 /* ToDoRealmTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F819CA2306CF83009E2474 /* ToDoRealmTableView.swift */; };
 		37F819CD2306D01E009E2474 /* ToDoRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F819CC2306D01E009E2474 /* ToDoRealmModel.swift */; };
 		37FAD786230554BE0060087D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FAD785230554BE0060087D /* AppDelegate.swift */; };
@@ -25,6 +27,8 @@
 		3706E5A523056451004AABFA /* NamePersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePersistance.swift; sourceTree = "<group>"; };
 		3706E5A7230593A7004AABFA /* ToDoPopupRealmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoPopupRealmViewController.swift; sourceTree = "<group>"; };
 		377558ED232925CC00DB1BED /* ToDoCoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCoreTableView.swift; sourceTree = "<group>"; };
+		37A0485D232A265C00871B38 /* ToDoCore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoCore+CoreDataClass.swift"; sourceTree = "<group>"; };
+		37A0485E232A265C00871B38 /* ToDoCore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoCore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		37F819CA2306CF83009E2474 /* ToDoRealmTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoRealmTableView.swift; sourceTree = "<group>"; };
 		37F819CC2306D01E009E2474 /* ToDoRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoRealmModel.swift; sourceTree = "<group>"; };
 		37FAD782230554BE0060087D /* HW14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW14.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +86,8 @@
 		37FAD784230554BE0060087D /* HW14 */ = {
 			isa = PBXGroup;
 			children = (
+				37A0485D232A265C00871B38 /* ToDoCore+CoreDataClass.swift */,
+				37A0485E232A265C00871B38 /* ToDoCore+CoreDataProperties.swift */,
 				37FAD785230554BE0060087D /* AppDelegate.swift */,
 				37FAD787230554BE0060087D /* ViewController.swift */,
 				37F819CA2306CF83009E2474 /* ToDoRealmTableView.swift */,
@@ -227,6 +233,8 @@
 				37FAD788230554BE0060087D /* ViewController.swift in Sources */,
 				377558EE232925CC00DB1BED /* ToDoCoreTableView.swift in Sources */,
 				3706E5A8230593A7004AABFA /* ToDoPopupRealmViewController.swift in Sources */,
+				37A04860232A265C00871B38 /* ToDoCore+CoreDataProperties.swift in Sources */,
+				37A0485F232A265C00871B38 /* ToDoCore+CoreDataClass.swift in Sources */,
 				3706E5A623056451004AABFA /* NamePersistance.swift in Sources */,
 				37FAD786230554BE0060087D /* AppDelegate.swift in Sources */,
 			);

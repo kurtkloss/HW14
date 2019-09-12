@@ -12,7 +12,7 @@ import CoreData
 class ToDoCoreTableView: UITableViewController {
     
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    
     var toDoList:[ToDoCore] = []
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,7 +22,7 @@ class ToDoCoreTableView: UITableViewController {
         } catch{
             print(error.localizedDescription)
         }
-
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,32 +36,41 @@ class ToDoCoreTableView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-         return toDoList.count
+        
+        return toDoList.count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let toDo = toDoList[indexPath.row]
-//            if  ToDoRModel.shared.changeState(toDoItem: toDo){
-//                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-//            }else {
-//                tableView.cellForRow(at: indexPath)?.accessoryType = .none
-//            }
-        //}
+        toDo.isCompleted = !toDo.isCompleted
+        do{
+            try context.save()
+            if  toDo.isCompleted {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            }else {
+                tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            }
+            
+            
+        } catch{
+            print(error.localizedDescription)
+            
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
         //        tableView.reloadData()
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-         let toDo = toDoList[indexPath.row]
-            cell.textLabel?.text = toDo.toDo
-            if toDo.isCompleted {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
-      
+        let toDo = toDoList[indexPath.row]
+        cell.textLabel?.text = toDo.toDo
+        if toDo.isCompleted {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
         return cell
     }
     
@@ -74,19 +83,24 @@ class ToDoCoreTableView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            if let toDo = toDoList?[indexPath.row]{
-//                ToDoRModel.shared.removeToDoR(toDo: toDo)
-            //}
-            toDoList.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let  toDo = toDoList[indexPath.row]
+            context.delete(toDo)
+            do{
+                try context.save()
+                toDoList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } catch{
+                print(error.localizedDescription)
+            }
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
-   
     
-   
+    
+    
     
     
     @IBAction func pushAddAction(_ sender: UIBarButtonItem) {

@@ -21,14 +21,14 @@ class ToDoPopupRealmViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        
+        
     }
     
-
+    
     @IBAction func saveButtonAction(_ sender: UIButton) {
         if let toDoText = toDoTextField.text{
-        delegate?.addToDo(toDo: toDoText)
+            delegate?.addToDo(toDo: toDoText)
         }
         dismiss(animated: true, completion: nil)
     }

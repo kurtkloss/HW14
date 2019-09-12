@@ -12,7 +12,7 @@ class NamePersistance{
     private let kUsernameKey = "NamePersistance.nameKey"
     private let kUserSurNameKey = "NamePersistance.surNameKey"
     var name: String?{
-         set{UserDefaults.standard.set(newValue, forKey: "kUserNameKey")}
+        set{UserDefaults.standard.set(newValue, forKey: "kUserNameKey")}
         get{return UserDefaults.standard.string(forKey:  "kUserNameKey")}
     }
     var surName:String?{
