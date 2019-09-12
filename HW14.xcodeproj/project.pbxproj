@@ -12,6 +12,12 @@
 		377558EE232925CC00DB1BED /* ToDoCoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377558ED232925CC00DB1BED /* ToDoCoreTableView.swift */; };
 		37A0485F232A265C00871B38 /* ToDoCore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A0485D232A265C00871B38 /* ToDoCore+CoreDataClass.swift */; };
 		37A04860232A265C00871B38 /* ToDoCore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A0485E232A265C00871B38 /* ToDoCore+CoreDataProperties.swift */; };
+		37A04864232A655500871B38 /* FiveDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A04863232A655500871B38 /* FiveDayViewController.swift */; };
+		37A04866232A65B200871B38 /* ErrorDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A04865232A65B200871B38 /* ErrorDomain.swift */; };
+		37A04868232A65D100871B38 /* FiveDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A04867232A65D100871B38 /* FiveDayCell.swift */; };
+		37A04870232A687C00871B38 /* FiveDayWeatherLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A0486F232A687C00871B38 /* FiveDayWeatherLoader.swift */; };
+		37A04873232A6BD600871B38 /* FiveDayWeather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A04871232A6BD600871B38 /* FiveDayWeather+CoreDataClass.swift */; };
+		37A04874232A6BD600871B38 /* FiveDayWeather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A04872232A6BD600871B38 /* FiveDayWeather+CoreDataProperties.swift */; };
 		37F819CB2306CF83009E2474 /* ToDoRealmTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F819CA2306CF83009E2474 /* ToDoRealmTableView.swift */; };
 		37F819CD2306D01E009E2474 /* ToDoRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F819CC2306D01E009E2474 /* ToDoRealmModel.swift */; };
 		37FAD786230554BE0060087D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FAD785230554BE0060087D /* AppDelegate.swift */; };
@@ -29,6 +35,13 @@
 		377558ED232925CC00DB1BED /* ToDoCoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCoreTableView.swift; sourceTree = "<group>"; };
 		37A0485D232A265C00871B38 /* ToDoCore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoCore+CoreDataClass.swift"; sourceTree = "<group>"; };
 		37A0485E232A265C00871B38 /* ToDoCore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoCore+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		37A04863232A655500871B38 /* FiveDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayViewController.swift; sourceTree = "<group>"; };
+		37A04865232A65B200871B38 /* ErrorDomain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDomain.swift; sourceTree = "<group>"; };
+		37A04867232A65D100871B38 /* FiveDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveDayCell.swift; sourceTree = "<group>"; };
+		37A0486B232A663300871B38 /* ExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExtensionView.swift; path = ../../DZ/HW13/HW13/ExtensionView.swift; sourceTree = "<group>"; };
+		37A0486F232A687C00871B38 /* FiveDayWeatherLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveDayWeatherLoader.swift; sourceTree = "<group>"; };
+		37A04871232A6BD600871B38 /* FiveDayWeather+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FiveDayWeather+CoreDataClass.swift"; sourceTree = "<group>"; };
+		37A04872232A6BD600871B38 /* FiveDayWeather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FiveDayWeather+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		37F819CA2306CF83009E2474 /* ToDoRealmTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoRealmTableView.swift; sourceTree = "<group>"; };
 		37F819CC2306D01E009E2474 /* ToDoRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoRealmModel.swift; sourceTree = "<group>"; };
 		37FAD782230554BE0060087D /* HW14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW14.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,14 +101,21 @@
 			children = (
 				37A0485D232A265C00871B38 /* ToDoCore+CoreDataClass.swift */,
 				37A0485E232A265C00871B38 /* ToDoCore+CoreDataProperties.swift */,
-				37FAD785230554BE0060087D /* AppDelegate.swift */,
-				37FAD787230554BE0060087D /* ViewController.swift */,
-				37F819CA2306CF83009E2474 /* ToDoRealmTableView.swift */,
-				37FAD789230554BE0060087D /* Main.storyboard */,
 				377558ED232925CC00DB1BED /* ToDoCoreTableView.swift */,
 				37F819CC2306D01E009E2474 /* ToDoRealmModel.swift */,
+				37F819CA2306CF83009E2474 /* ToDoRealmTableView.swift */,
 				3706E5A7230593A7004AABFA /* ToDoPopupRealmViewController.swift */,
+				37FAD787230554BE0060087D /* ViewController.swift */,
 				3706E5A523056451004AABFA /* NamePersistance.swift */,
+				37FAD785230554BE0060087D /* AppDelegate.swift */,
+				37FAD789230554BE0060087D /* Main.storyboard */,
+				37A04871232A6BD600871B38 /* FiveDayWeather+CoreDataClass.swift */,
+				37A04872232A6BD600871B38 /* FiveDayWeather+CoreDataProperties.swift */,
+				37A04863232A655500871B38 /* FiveDayViewController.swift */,
+				37A0486F232A687C00871B38 /* FiveDayWeatherLoader.swift */,
+				37A04867232A65D100871B38 /* FiveDayCell.swift */,
+				37A04865232A65B200871B38 /* ErrorDomain.swift */,
+				37A0486B232A663300871B38 /* ExtensionView.swift */,
 				37FAD78F230554BF0060087D /* Assets.xcassets */,
 				37FAD791230554BF0060087D /* LaunchScreen.storyboard */,
 				37FAD794230554BF0060087D /* Info.plist */,
@@ -227,16 +247,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A04870232A687C00871B38 /* FiveDayWeatherLoader.swift in Sources */,
+				37A04874232A6BD600871B38 /* FiveDayWeather+CoreDataProperties.swift in Sources */,
 				37FAD78E230554BE0060087D /* HW14.xcdatamodeld in Sources */,
 				37F819CB2306CF83009E2474 /* ToDoRealmTableView.swift in Sources */,
 				37F819CD2306D01E009E2474 /* ToDoRealmModel.swift in Sources */,
 				37FAD788230554BE0060087D /* ViewController.swift in Sources */,
+				37A04864232A655500871B38 /* FiveDayViewController.swift in Sources */,
 				377558EE232925CC00DB1BED /* ToDoCoreTableView.swift in Sources */,
 				3706E5A8230593A7004AABFA /* ToDoPopupRealmViewController.swift in Sources */,
 				37A04860232A265C00871B38 /* ToDoCore+CoreDataProperties.swift in Sources */,
 				37A0485F232A265C00871B38 /* ToDoCore+CoreDataClass.swift in Sources */,
+				37A04868232A65D100871B38 /* FiveDayCell.swift in Sources */,
+				37A04866232A65B200871B38 /* ErrorDomain.swift in Sources */,
 				3706E5A623056451004AABFA /* NamePersistance.swift in Sources */,
 				37FAD786230554BE0060087D /* AppDelegate.swift in Sources */,
+				37A04873232A6BD600871B38 /* FiveDayWeather+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
