@@ -10,12 +10,12 @@ import UIKit
 import CoreData
 
 class ToDoCoreTableView: UITableViewController {
+    
+    lazy var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     var toDoList:[ToDoCore] = []
     
     override func viewWillAppear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         let fetchRequest :NSFetchRequest<ToDoCore> = ToDoCore.fetchRequest()
         do{
             toDoList = try context.fetch(fetchRequest)
@@ -27,11 +27,6 @@ class ToDoCoreTableView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Table view data source
@@ -41,7 +36,7 @@ class ToDoCoreTableView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+       
          return toDoList.count
     }
     
@@ -89,30 +84,9 @@ class ToDoCoreTableView: UITableViewController {
         }
     }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
+   
     
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+   
     
     
     @IBAction func pushAddAction(_ sender: UIBarButtonItem) {
@@ -129,8 +103,6 @@ class ToDoCoreTableView: UITableViewController {
 }
 extension ToDoCoreTableView:PopUpControllerDelegate{
     func addToDo(toDo: String) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "ToDoCore", in: context)
         let newToDoObject = NSManagedObject(entity: entity!, insertInto: context) as! ToDoCore
         newToDoObject.toDo = toDo
